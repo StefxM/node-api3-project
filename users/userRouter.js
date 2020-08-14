@@ -3,8 +3,19 @@ const usersdb = require("./userDb")
 const postsdb = require("../posts/postDb")
 const router = express.Router();
 
-router.post('/', (req, res) => {
+router.post('/api/users', (req, res) => {
   // do your magic!
+  usersdb.insert(users) 
+    .then((user) => {
+      res.status(201).json(user)
+    })
+    .catch((error) => {
+      console.log(error)
+      res.status(500).json({
+        message: "Error adding the user",
+      })
+    })
+  
 });
 
 router.post('/:id/posts', (req, res) => {
@@ -40,10 +51,11 @@ router.get('/api/users/:id', (req, res) => {
       })
     })
 });
-
+//kinda worked
 router.get('/api/users/:id/posts', (req, res) => {
   // do your magic!
-  postsdb.getById(req.params.Id)
+  const user = usersdb.getById(req.params.id)
+  postsdb.get(user)
   .then((posts) => {
     res.status(200).json(posts)
   })
