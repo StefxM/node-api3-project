@@ -1,6 +1,7 @@
 {
     "name": "node-api3-project",
     "version": "1.0.0",
+    "engines": {"node":"v12.18.3"},
     "description": "Node API 3 Project",
     "main": "index.js",
     "scripts": {
