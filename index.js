@@ -6,7 +6,7 @@ const logger = require("./middleware/logger")
 const userRouter = require("./users/userRouter")
 
 const server = express()
-const port = 3030
+const port = 5000
 
 server.use(express.json())
 server.use(logger())
